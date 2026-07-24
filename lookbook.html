@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lookbook — Nocabb</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="shop.js" defer></script>
+    <script src="lookbook-data.js" defer></script>
+    <script src="lookbook.js" defer></script>
+    <script src="menu.js" defer></script>
+</head>
+<body class="lookbook-page">
+
+    <header>
+        <div class="container">
+            <div class="nav">
+                <nav class="nav-link">
+                    <a href="lookbook.html">Lookbook &#x2197;</a>
+                    <a href="#" class="nav-more">More &#x2197;</a>
+                    <a href="index.html" class="nav-logo">
+                        <img src="assets/images/logo.svg" alt="Nocabb Creative Lab">
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-main">
+            <div class="container">
+                <h1>Lookbook</h1>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="container">
+                <div class="filters-layout" id="lookbook-filters"></div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="lookbook-gallery" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-layout">
+                <div class="link-list">
+                    <a href="about.html" class="list-item">
+                        <span class="link-text">About Nocabb</span>
+                        <span class="link-arrow">&#x2197;</span>
+                    </a>
+                    <a href="lookbook.html?collection=gobelin-drop" class="list-item">
+                        <span class="link-text">Gobelin drop (lookbook)</span>
+                        <span class="link-arrow">&#x2197;</span>
+                    </a>
+                </div>
+                <div class="newsletter">
+                    <p>
+                        Be the first to get info about new stuff. Leave email below and get notified about news
+                    </p>
+                    <form
+                        class="inline-form"
+                        action="https://docs.google.com/forms/d/e/1FAIpQLSfeZ9GiQ0UnGejwzJj2KGxR30p-2bkfdQYIxSFQHJTo467yzA/formResponse"
+                        method="POST"
+                        target="newsletter_iframe"
+                    >
+                        <input type="text" name="username" class="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
+
+                        <input
+                            class="input-primary"
+                            type="email"
+                            name="entry.422034782"
+                            placeholder="@"
+                            required
+                        >
+                        <button class="btn btn--primary" type="submit">Confirm</button>
+                    </form>
+
+                    <iframe name="newsletter_iframe" style="display:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

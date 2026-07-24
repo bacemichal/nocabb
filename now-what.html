@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Nocabb</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="menu.js" defer></script>
+</head>
+<body class="about-page">
+
+    <header>
+        <div class="container">
+            <div class="nav">
+                <nav class="nav-link">
+                    <a href="#">Lookbook &#x2197;</a>
+                    <a href="#" class="nav-more">More &#x2197;</a>
+                    <a href="index.html" class="nav-logo">
+                        <img src="assets/images/logo.svg" alt="Nocabb Creative Lab">
+                    </a>
+                </nav>
+                
+
+            </div>
+            
+        </div> 
+    </header>
+    
+    <main>
+
+        <section class="hero-main">
+            <div class="container">
+                <h1>Now what?</h1>
+            </div>
+        </section>
+
+        <section class="now-what-content">
+            <div class="container--small">
+                <div class="content-layout instagram-box">
+                    <p>Appreciate your support. Leave me your Instagram and I will drop you a message as soon as possible.</p>
+                    
+                    <form
+                        id="instagram-form"
+                        class="inline-form"
+                        action="https://docs.google.com/forms/d/e/1FAIpQLScZUoB-1A1fCRsbdSk99mLYoe_D6v3JsXFuCTHj7zTZ0CZFpA/formResponse"
+                        method="POST"
+                    >
+                        <input type="text" name="username" class="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
+                        <input type="hidden" name="entry.895008283" id="google-product-name">
+                
+                        <input 
+                            class="input-primary" 
+                            type="text" 
+                            name="entry.1944986147" 
+                            placeholder="@" 
+                            required
+                        >
+                        <button class="btn btn--primary" type="submit">Confirm</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        
+
+        
+
+
+        
+
+
+    </main>
+
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-layout">
+                <div class="link-list">
+                    <a href="about.html" class="list-item">
+                        <span class="link-text">About Nocabb</span>
+                        <span class="link-arrow">&#x2197;</span>
+                    </a>
+                    <a href="lookbook.html?collection=gobelin-drop" class="list-item">
+                        <span class="link-text">Gobelin drop (lookbook)</span>
+                        <span class="link-arrow">&#x2197;</span>
+                    </a>
+                </div>
+                <div class="newsletter">
+                    <p>
+                        Be the first to get info about new stuff. Leave email below and get notified about news
+                    </p>
+                    <form 
+                        class="inline-form"
+                        action="https://docs.google.com/forms/d/e/1FAIpQLSfeZ9GiQ0UnGejwzJj2KGxR30p-2bkfdQYIxSFQHJTo467yzA/formResponse" 
+                        method="POST" 
+                        target="newsletter_iframe"
+                    >
+                        <input type="text" name="username" class="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
+                
+                        <input 
+                            class="input-primary" 
+                            type="email" 
+                            name="entry.422034782" 
+                            placeholder="@" 
+                            required
+                        >
+                        <button class="btn btn--primary" type="submit">Confirm</button>
+                    </form>
+                    
+                    <iframe name="newsletter_iframe" style="display:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const form = document.getElementById('instagram-form');
+            if (!form) return;
+
+            // Vytiahnutie názvu z pamäte a vloženie do skrytého poľa
+            const productInput = document.getElementById('google-product-name');
+            const ulozenyProdukt = localStorage.getItem('vybrany_produkt');
+            
+            if (productInput && ulozenyProdukt) {
+                productInput.value = ulozenyProdukt;
+                // Vyčistíme pamäť
+                localStorage.removeItem('vybrany_produkt');
+            } else if (productInput) {
+                productInput.value = "Priamy prístup / Neznámy produkt";
+            }
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const honeypot = form.querySelector('.honeypot');
+                if (honeypot && honeypot.value !== '') {
+                    window.location.href = 'thank-you.html';
+                    return;
+                }
+
+                const submitBtn = form.querySelector('[type="submit"]');
+                if (submitBtn) submitBtn.disabled = true;
+
+                fetch(form.action, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: new FormData(form)
+                }).finally(function () {
+                    window.location.href = 'thank-you.html';
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>
