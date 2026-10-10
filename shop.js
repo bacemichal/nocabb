@@ -28,6 +28,13 @@ const produkty = [
         foto: "assets/images/products/amsterdam-oldtown-jacket.JPG" 
     },
     { 
+        id: "nocabb-camo-jacket",
+        nazov: "Nocabb camo jacket", 
+        kategoria: "jackets", 
+        cena: "150 €", 
+        foto: "assets/images/products/nocabb-camo-jacket.jpeg" 
+    },
+    { 
         id: "archive-jacket",
         nazov: "Archive jacket", 
         kategoria: "jackets", 
